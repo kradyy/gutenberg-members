@@ -1,5 +1,5 @@
 {
-	"name": "boilerplate",
+	"name": "members",
 	"version": "0.1.0",
 	"description": "Example block scaffolded with Create Block tool.",
 	"author": "The WordPress Contributors",
@@ -37,6 +37,7 @@
 		"eslint-config-prettier": "^8.5.0",
 		"husky": "^8.0.1",
 		"lint-staged": "^13.0.3",
+		"prettier": "^2.7.1",
 		"stylelint": "^14.13.0"
 	}
 }
