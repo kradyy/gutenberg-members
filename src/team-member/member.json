@@ -1,0 +1,59 @@
+{
+	"supports": {
+		"html": false,
+		"reusable": false,
+		"color": {
+			"background": true,
+			"text": false,
+			"gradients": true
+		}
+	},
+	"attributes": {
+		"name": {
+			"type": "string",
+			"source": "html",
+			"selector": "h4"
+		},
+		"bio": {
+			"type": "string",
+			"source": "html",
+			"selector": "p"
+		},
+		"id": {
+			"type": "number"
+		},
+		"alt": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "img",
+			"attribute": "alt",
+			"default": ""
+		},
+		"url": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "img",
+			"attribute": "src"
+		},
+		"blockClass": {
+			"type": "string"
+		},
+		"socialLinks": {
+			"type": "array",
+			"default": [],
+			"source": "query",
+			"selector": ".wp-block-create-block-team-member-social-icons ul li",
+			"query": {
+				"icon": {
+					"source": "attribute",
+					"attribute": "data-icon"
+				},
+				"link": {
+					"selector": "a",
+					"source": "attribute",
+					"attribute": "href"
+				}
+			}
+		}
+	}
+}

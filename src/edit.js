@@ -1,11 +1,54 @@
+import {
+	useBlockProps,
+	InnerBlocks,
+	InspectorControls,
+} from '@wordpress/block-editor';
+import { PanelBody, RangeControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
-import { useBlockProps } from '@wordpress/block-editor';
+
 import './editor.scss';
 
-export default function Edit() {
+export default function Edit({ attributes, setAttributes }) {
+	const { columns } = attributes;
+
 	return (
-		<p {...useBlockProps()}>
-			{__('members - hello from the editor!', 'members')}
-		</p>
+		<div
+			{...useBlockProps({
+				className: `has-${columns}-columns`,
+			})}
+		>
+			<InspectorControls>
+				<PanelBody>
+					<RangeControl
+						label={__('Columns', 'team-members')}
+						value={columns}
+						min={1}
+						max={6}
+						onChange={(e) => setAttributes({ columns: e })}
+					/>
+				</PanelBody>
+			</InspectorControls>
+
+			<InnerBlocks
+				allowedBlocks={['create-block/team-member']}
+				orientation="horizontal"
+				template={[
+					['create-block/team-member'],
+					['create-block/team-member'],
+					['create-block/team-member'],
+				]}
+			/>
+		</div>
 	);
 }
+
+/*
+templateLock="all"
+[
+	'create-block/team-member',
+	{
+		name: 'Team member two',
+		bio: 'Biography',
+	},
+],
+*/

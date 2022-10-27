@@ -5,7 +5,68 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-create-block-members {
-	color: #000;
-	padding: 2px;
+.wp-block-create-block-team-members {
+	display: flex;
+	flex-flow: row;
+	flex-wrap: wrap;
+
+	margin-left: -10px;
+	margin-right: -10px;
+
+	@for $i from 1 through 6 {
+		&.has-#{$i}-columns .wp-block-create-block-team-member {
+			width: calc(100% / #{$i} - 20px);
+		}
+	}
+
+	.wp-block-create-block-team-member {
+		margin: 10px;
+
+		img {
+			margin-bottom: 10px;
+		}
+
+		h4 {
+			color: #222;
+			font-size: 22px;
+			font-size: bold;
+			margin: 0;
+		}
+
+		p {
+			font-size: 13px;
+			color: #aaa;
+			font-weight: 300;
+			margin-bottom: 5px;
+		}
+
+		&-social-icons > ul {
+			list-style-type: none;
+			display: flex;
+			padding: 0;
+			align-items: center;
+			margin: 0 -5px;
+
+			li {
+				margin-right: 5px;
+				padding: 5px;
+
+				a {
+					color: #000;
+					text-decoration: none;
+				}
+
+				&.selected {
+					border: 1px solid #000;
+				}
+			}
+
+			button {
+				background: none;
+				border: 0;
+				cursor: pointer;
+			}
+		}
+
+	}
 }
